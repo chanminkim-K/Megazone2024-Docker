@@ -54,7 +54,7 @@ WORKDIR /app
 COPY --from=builder build/libs/*.jar /app/app.jar
 
 # 사용 가능한 port no 지정
-EXPOSE 0
+EXPOSE 8070
 
 # spring boot 기반의 application 을 컨테이너가 실행이 될 때 실행이 되도록 설정
 # java 명령어로 패키징된 jar 파일을 실행.

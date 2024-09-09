@@ -18,8 +18,10 @@ COPY gradle gradle
 COPY build.gradle .
 COPY settings.gradle .
 COPY src src
+
 RUN rm src/main/resources/bootstrap.yaml
 RUN mv src/main/resources/bootstrap-docker.yaml src/main/resources/bootstrap.yaml
+
 # gradlew 를 이용해서 빌드를 실행 및 jar 파일로 패키징
 # gradle 빌드 시스템을 사용할 때, application 에서 필요한 gradle 버전을
 # 자동으로 다운로드 하고 설치하는 도구
@@ -54,7 +56,7 @@ WORKDIR /app
 COPY --from=builder build/libs/*.jar /app/app.jar
 
 # 사용 가능한 port no 지정
-EXPOSE 0
+EXPOSE 8761
 
 # spring boot 기반의 application 을 컨테이너가 실행이 될 때 실행이 되도록 설정
 # java 명령어로 패키징된 jar 파일을 실행.

@@ -1,0 +1,13 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: eureka-server
+  profiles:
+    active: docker
+  cloud:
+    config:
+      uri: http://172.19.0.1:8080
+    loadbalancer:
+      ribbon:
+        enabled: false
